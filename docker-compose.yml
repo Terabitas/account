@@ -1,11 +1,11 @@
 # API container
-#account:
-#  image: nildev/account:latest
-#  net: nildev
-#  container_name: account.nildev
-#  ports:
-#      - 80:8080
-#  env_file: .env
+account:
+  image: nildev/account:latest
+  net: nildev
+  container_name: account.nildev
+  ports:
+      - 80:8080
+  env_file: local.env
 
 # Custom services required for development
 mongo:
