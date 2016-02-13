@@ -1,0 +1,38 @@
+# API container
+#account:
+#  image: nildev/account:latest
+#  net: nildev
+#  container_name: account.nildev
+#  ports:
+#      - 80:8080
+#  env_file: .env
+
+# Custom services required for development
+mongo:
+  image: mongo:3.0.8
+  net: nildev
+  container_name: mongodb.account.nildev
+  ports:
+      - 27017:27017
+  env_file: local.env
+
+#datastore:
+#  image: nildev/gcloud:latest
+#  net: nildev
+#  container_name: datastore.account.nildev
+#  command: beta emulators datastore start --data-dir /data/account-db --host-port 0.0.0.0:8080
+#  ports:
+#      - 8081:8080
+#  env_file: .env
+#
+#
+#pubsub:
+#  image: nildev/gcloud:latest
+#  net: nildev
+#  container_name: pubsub.account.nildev
+#  command: beta emulators pubsub start --data-dir /data  --host-port 0.0.0.0:8080
+#  ports:
+#      - 8082:8080
+#  volumes:
+#      - ./data:/data
+#  env_file: .env

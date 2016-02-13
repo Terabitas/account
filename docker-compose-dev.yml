@@ -1,0 +1,6 @@
+mongo:
+  image: mongo:3.0.8
+  net: nildev
+  container_name: mongodb.account.nildev
+  ports:
+      - 27017:27017
