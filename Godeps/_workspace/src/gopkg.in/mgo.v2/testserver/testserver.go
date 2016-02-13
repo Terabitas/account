@@ -11,7 +11,6 @@ import (
 	"time"
 
 	"github.com/nildev/account/Godeps/_workspace/src/gopkg.in/mgo.v2"
-	"gopkg.in/tomb.v2"
 )
 
 // WARNING: This package was replaced by mgo.v2/dbtest.

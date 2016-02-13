@@ -10,7 +10,6 @@ import (
 	"time"
 
 	"github.com/nildev/account/Godeps/_workspace/src/gopkg.in/mgo.v2"
-	"gopkg.in/tomb.v2"
 )
 
 // DBServer controls a MongoDB server process to be used within test suites.
