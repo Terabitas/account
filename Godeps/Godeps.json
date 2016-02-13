@@ -44,11 +44,11 @@
 		},
 		{
 			"ImportPath": "github.com/nildev/lib/log",
-			"Rev": "e0e044d8fb76d1f0a15be17d6e7b2f6c84ad476d"
+			"Rev": "8ed0c988abca8c3932952aa7c7c1fd16f1eeb881"
 		},
 		{
 			"ImportPath": "github.com/nildev/lib/registry",
-			"Rev": "e0e044d8fb76d1f0a15be17d6e7b2f6c84ad476d"
+			"Rev": "8ed0c988abca8c3932952aa7c7c1fd16f1eeb881"
 		},
 		{
 			"ImportPath": "golang.org/x/net/context",
@@ -69,10 +69,6 @@
 		{
 			"ImportPath": "golang.org/x/oauth2",
 			"Rev": "8a57ed94ffd43444c0879fe75701732a38afc985"
-		},
-		{
-			"ImportPath": "golang.org/x/sys/unix",
-			"Rev": "833a04a10549a95dc34458c195cbad61bbb6cb4d"
 		},
 		{
 			"ImportPath": "google.golang.org/api/gensupport",

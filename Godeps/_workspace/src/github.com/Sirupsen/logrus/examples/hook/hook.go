@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/nildev/account/Godeps/_workspace/src/github.com/Sirupsen/logrus"
 	"github.com/nildev/account/Godeps/_workspace/src/github.com/Sirupsen/logrus/hooks/airbrake"
-	"github.com/tobi/airbrake-go"
 )
 
 var log = logrus.New()

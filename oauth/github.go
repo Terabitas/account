@@ -5,8 +5,13 @@ import (
 
 	"github.com/nildev/account/Godeps/_workspace/src/github.com/google/go-github/github"
 	"github.com/nildev/account/Godeps/_workspace/src/github.com/juju/errors"
+	"github.com/nildev/account/Godeps/_workspace/src/github.com/nildev/lib/log"
 	"github.com/nildev/account/Godeps/_workspace/src/golang.org/x/oauth2"
 	oauthGithub "github.com/nildev/account/Godeps/_workspace/src/golang.org/x/oauth2/github"
+)
+
+var (
+	logger = log.StandardLogger()
 )
 
 func makeGitHubProvider(clientID, clientSecret string, token *oauth2.Token) *gitHubReader {
@@ -44,10 +49,13 @@ func (gr *gitHubReader) Token(authCode string) (*oauth2.Token, error) {
 	token, err := conf.Exchange(oauth2.NoContext, authCode)
 
 	if err != nil {
+		logger.WithField("authCode", authCode).Errorf("%s", err)
 		return nil, errors.Trace(err)
 	}
 
 	gr.token = token
+
+	logger.WithField("authCode", authCode).Debugf("Got token, will expiry at [%s]", gr.token.Expiry)
 	ts := oauth2.StaticTokenSource(gr.token)
 	tc := oauth2.NewClient(oauth2.NoContext, ts)
 
@@ -55,8 +63,10 @@ func (gr *gitHubReader) Token(authCode string) (*oauth2.Token, error) {
 	gr.user, _, err = client.Users.Get("")
 
 	if err != nil {
-		return nil, err
+		logger.WithField("authCode", authCode).Errorf("%s", err)
+		return nil, errors.Trace(err)
 	}
+	logger.WithField("authCode", authCode).WithField("user", gr.user.Email).Debugf("[%s]", gr.user.String())
 
 	return gr.token, nil
 }
